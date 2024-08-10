@@ -1,4 +1,16 @@
 {% extends "layout.html" %} {% block title %} Lets Tweet ! {% endblock %}
 {%block content %}
-<h1 class="text-center text-white mt-4">Welcome to Lets Tweet !</h1>
+<h1 class="text-center text-white mt-4">
+  Are you sure you want to delete the tweet ?
+</h1>
+
+<h2>
+  <form method="post" class="form">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="btn btn-danger mt-4">Submit</button>
+    <a href="{% url 'tweet_list' %}" class="btn btn-success mt-4"
+      >Back to Home</a
+    >
+  </form>
+</h2>
 {% endblock %}
