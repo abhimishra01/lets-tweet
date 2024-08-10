@@ -12,12 +12,17 @@
       <div class="card-body">
         <h5 class="card-title">{{tweet.user.username}}</h5>
         <p class="card-text">{{tweet.text}}</p>
+        {% if tweet.user == user %}
+
         <a class="btn btn-primary" href="{% url 'tweet_edit' tweet.id %}"
           >Edit</a
         >
         <a class="btn btn-danger" href="{% url 'tweet_delete' tweet.id %}"
           >Delete</a
         >
+
+        {% endif %} {% comment %} we can access the object `user`anywhere in
+        django template because its part of the request {% endcomment %}
       </div>
     </div>
 
