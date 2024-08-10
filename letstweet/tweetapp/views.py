@@ -12,7 +12,6 @@ def tweet_list(request):
     tweets = Tweet.objects.all().order_by('-created_at')
     return render(request, 'tweet_list.html', {'tweets': tweets})
 
-
 def tweet_create(request):
     if request.method == 'POST':
         form = TweetForm(request.POST, request.FILES)
@@ -45,4 +44,4 @@ def tweet_delete(request, tweet_id):
     if request.method == 'POST':
         tweet.delete()
         return redirect('tweet_list')
-    return render(request, 'tweet_form.html', {'tweet': tweet})
+    return render(request, 'tweet_delete.html', {'tweet': tweet})
